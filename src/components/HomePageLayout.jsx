@@ -6,11 +6,6 @@ const HomePageLayout = () => {
     <>
       <Navbar />
       <Outlet />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
-        dignissimos et? Odit nulla soluta optio neque aspernatur ea rem est.
-      </p>
-      <div>Footer</div>
     </>
   );
 };

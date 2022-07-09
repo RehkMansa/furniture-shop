@@ -70,16 +70,17 @@ const GlobalStyle = createGlobalStyle`
   }
   button, input{
     outline:none;
+    border: none;
   }
 
   body{
-    padding: 0 3%;
+    padding: 0 7%;
   }
 
   button{
     background-color: var(--gold);
-    color: var(--black)
-    padding: 10px 20px;
+    color: var(--black);
+    padding: 16px 32px;
     font-weight: 500;
     font-size: 18px;
   }
