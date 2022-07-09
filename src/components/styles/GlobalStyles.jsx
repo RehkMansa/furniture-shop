@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-wrap: break-word;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-weight: 500;
+    font-weight: 600;
     color: var(--black);
   }
   #root, #__next {
