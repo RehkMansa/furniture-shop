@@ -3,7 +3,14 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
+    text-transform: 
   }
+*::first-letter {
+  text-transform: capitalize;
+}
+
+  
+
   * {
     margin: 0;
   }
@@ -16,11 +23,20 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;
   }
+    a:link,
+    a:visited{
+      color:var(--black);
+      text-decoration: none;
+      font-size: 16px;
+  }
+
+
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     font-family: 'Red Hat Display', sans-serif;
     color: var(--gray);
+    font-size: 20px;
   }
   img, picture, video, canvas, svg {
     display: block;
@@ -29,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
   input, button, textarea, select {
     font: inherit;
   }
+
   p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
   }
@@ -63,6 +80,8 @@ const GlobalStyle = createGlobalStyle`
     background-color: var(--gold);
     color: var(--black)
     padding: 10px 20px;
+    font-weight: 500;
+    font-size: 18px;
   }
 
   .btn-info{
