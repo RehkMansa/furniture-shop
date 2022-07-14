@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  padding: 100px 0;
+  margin: 70px 0;
 `;
 
 const FeaturedWrapper = styled.div`

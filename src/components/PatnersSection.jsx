@@ -5,12 +5,31 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  padding: 100px 0;
+  height: 113px;
+  border-top: 1px solid #eeeeee;
+  margin: 70px 0;
+  border-bottom: 1px solid #eeeeee;
 `;
+
+const Partner = ({ img }) => (
+  <img src={`/images/partners/${img}.svg`} alt={img} />
+);
+
+const partners = [
+  'airbnb',
+  'hubspot',
+  'google',
+  'microsoft',
+  'walmart',
+  'fedex',
+];
+console.log(partners);
 const PartnersSection = () => {
   return (
     <Wrapper>
-      <img src="/images/add" alt="partners" />
+      {partners.map((partner, n) => (
+        <Partner img={partner} key={n} />
+      ))}
     </Wrapper>
   );
 };

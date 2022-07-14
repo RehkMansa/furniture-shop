@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import FeaturedSection from './FeaturedSection';
 import HeroSection from './HeroSection';
+import PartnersSection from './PatnersSection';
 
 const Wrapper = styled.div`
   .image-wrapper {
@@ -20,6 +21,7 @@ const HomePage = () => {
       <div className="image-wrapper">
         <img src="/images/chair00.jpg" alt="bgImage" />
       </div>
+      <PartnersSection />
       <FeaturedSection />
     </Wrapper>
   );
