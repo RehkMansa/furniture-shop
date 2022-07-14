@@ -59,7 +59,9 @@ const GlobalStyle = createGlobalStyle`
   .row{
     display: flex;
   }
-
+  .flex{
+    display: flex;
+  }
   .center{
     justify-content: center;
     align-items:center;
