@@ -23,7 +23,6 @@ const partners = [
   'walmart',
   'fedex',
 ];
-console.log(partners);
 const PartnersSection = () => {
   return (
     <Wrapper>
