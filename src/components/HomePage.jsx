@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import FeaturedSection from './FeaturedSection';
 import HeroSection from './HeroSection';
+import MiddleSection from './MiddleSection';
 import PartnersSection from './PatnersSection';
 
 const Wrapper = styled.div`
@@ -23,6 +24,7 @@ const HomePage = () => {
       </div>
       <PartnersSection />
       <FeaturedSection />
+      <MiddleSection />
     </Wrapper>
   );
 };
