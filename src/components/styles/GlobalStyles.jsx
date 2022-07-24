@@ -75,9 +75,7 @@ const GlobalStyle = createGlobalStyle`
     border: none;
   }
 
-  body{
-    padding: 0 7%;
-  }
+  
 
   button{
     background-color: var(--gold);

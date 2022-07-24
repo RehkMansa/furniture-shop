@@ -4,7 +4,13 @@ import HomePage from './components/HomePage';
 import HomePageLayout from './components/HomePageLayout';
 import GlobalStyle from './components/styles/GlobalStyles';
 
-const AppContainer = styled.main``;
+const AppContainer = styled.main`
+  & > * {
+    padding-left: 7%;
+    padding-right: 7%;
+    overflow-x: hidden;
+  }
+`;
 
 function App() {
   return (
