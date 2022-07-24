@@ -89,6 +89,22 @@ const TestimonialSingle = styled.div`
   }
 `;
 
+const ImageEllipse = styled.div`
+  margin-top: 30px;
+  display: flex;
+  background: transparent;
+  align-items: center;
+  img {
+    height: 47px;
+    object-fit: cover;
+    width: 47px;
+    border-radius: 50%;
+  }
+  img:not(:first-child) {
+    margin-left: -13px;
+  }
+`;
+
 const Testimonials = () => {
   return (
     <Wrapper>
@@ -120,11 +136,14 @@ const Testimonials = () => {
               <span className="quotation-end"></span>
             </p>
           </div>
-          <div className="image-ellipse">
-            <img src="/images/person1.jpg" alt="person" />
-            <img src="/images/person2.jpg" alt="person" />
-            <img src="/images/person3.jpg" alt="person" />
-            <img src="/images/person4.jpg" alt="person" />
+          <ImageEllipse>
+            <img src="/images/person/person1.jpg" alt="person" />
+            <img src="/images/person/person2.jpg" alt="person" />
+            <img src="/images/person/person3.jpg" alt="person" />
+            <img src="/images/person/person4.jpg" alt="person" />
+          </ImageEllipse>
+          <div className="arrows">
+            <img src="/images/" alt="" />
           </div>
         </TestimonialSingle>
       </TestimonialWrap>
