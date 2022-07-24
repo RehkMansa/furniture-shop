@@ -3,7 +3,12 @@ import ShopProduct from './ShopProduct';
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 40px;
+
+  & > *{
+    border: 1px solid red;
+  }
 `;
 
 const products = [

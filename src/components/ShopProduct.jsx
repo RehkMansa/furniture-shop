@@ -5,9 +5,11 @@ const ProductWrap = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  border: 1px solid purple;
+  width: 100%;
   img {
     height: 450px;
+    width: 100%;
+    object-fit: cover;
   }
 `;
 
@@ -15,7 +17,6 @@ const DetailsWrapper = styled.div`
   padding: 30px 20px;
   position: relative;
   top: -20px;
-  border: 1px solid blue;
   width: calc(100% - 20px);
 
   h4 {
@@ -24,7 +25,6 @@ const DetailsWrapper = styled.div`
   }
 
   .row {
-    border: 1px solid red;
     justify-content: space-between;
   }
 `;
