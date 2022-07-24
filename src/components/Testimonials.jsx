@@ -92,7 +92,6 @@ const TestimonialSingle = styled.div`
 const ImageEllipse = styled.div`
   margin-top: 30px;
   display: flex;
-  background: transparent;
   align-items: center;
   img {
     height: 47px;
@@ -102,6 +101,27 @@ const ImageEllipse = styled.div`
   }
   img:not(:first-child) {
     margin-left: -13px;
+  }
+`;
+
+const Arrows = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+
+  .ellipse {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255, 199, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .ellipse:hover {
+    border: 1px solid #ffc700;
   }
 `;
 
@@ -142,9 +162,18 @@ const Testimonials = () => {
             <img src="/images/person/person3.jpg" alt="person" />
             <img src="/images/person/person4.jpg" alt="person" />
           </ImageEllipse>
-          <div className="arrows">
-            <img src="/images/" alt="" />
-          </div>
+          <Arrows>
+            <div className="ellipse">
+              <img
+                style={{ transform: 'scaleX(-1)' }}
+                src="/images/stroke.svg"
+                alt="previous"
+              />
+            </div>
+            <div className="ellipse">
+              <img src="/images/stroke.svg" alt="next" />
+            </div>
+          </Arrows>
         </TestimonialSingle>
       </TestimonialWrap>
     </Wrapper>
