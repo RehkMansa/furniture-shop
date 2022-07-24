@@ -16,16 +16,18 @@ const ImageContainer = styled.div`
 const DetailsWrapper = styled.div`
   padding: 30px 20px;
   position: relative;
-  top: -20px;
+  top: -50px;
   width: calc(100% - 20px);
-
+  background: #fafafa;
   h4 {
     font-size: 24px;
     line-height: 36px;
+    margin-bottom: 16px;
   }
 
   .row {
     justify-content: space-between;
+    align-items: center;
   }
 `;
 
