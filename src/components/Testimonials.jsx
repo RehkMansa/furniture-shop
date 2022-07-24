@@ -6,7 +6,29 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 80vh;
-  border: 1px solid red;
+  background: #fafafa;
+  padding: 150px 0;
+  position: relative;
+  margin: 50px 0;
+
+  &:before,
+  &:after {
+    background-image: url(/images/ellipse.svg);
+    content: '';
+    position: absolute;
+    height: 325px;
+    width: 325px;
+    display: block;
+    top: 7%;
+  }
+  &:after {
+    transform: translate(50%, -50%);
+    right: 0;
+  }
+  &:before {
+    transform: translate(-50%, -50%);
+    left: 0;
+  }
 `;
 
 const Header = styled.div`
