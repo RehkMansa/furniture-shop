@@ -120,6 +120,12 @@ const Testimonials = () => {
               <span className="quotation-end"></span>
             </p>
           </div>
+          <div className="image-ellipse">
+            <img src="/images/person1.jpg" alt="person" />
+            <img src="/images/person2.jpg" alt="person" />
+            <img src="/images/person3.jpg" alt="person" />
+            <img src="/images/person4.jpg" alt="person" />
+          </div>
         </TestimonialSingle>
       </TestimonialWrap>
     </Wrapper>
