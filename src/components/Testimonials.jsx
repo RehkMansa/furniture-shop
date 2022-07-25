@@ -55,8 +55,9 @@ const TestimonialWrap = styled.div`
 `;
 
 const TestimonialSingle = styled.div`
-  h3 {
+  h4 {
     font-size: 40px;
+    margin-bottom: 10px;
   }
   .header {
     .ratings {
@@ -113,6 +114,7 @@ const Arrows = styled.div`
 
   .ellipse {
     width: 32px;
+    cursor: pointer;
     height: 32px;
     border: 1px solid rgba(255, 199, 0, 0.3);
     display: flex;
@@ -140,7 +142,7 @@ const Testimonials = () => {
         <img className="image-left" src="/images/man.jpg" alt="man on chair" />
         <TestimonialSingle>
           <div className="header">
-            <h3>Rusmin Islam</h3>
+            <h4>Rusmin Islam</h4>
             <div className="ratings">
               <img src="/images/star.png" alt="star" />
               <img src="/images/star.png" alt="star" />

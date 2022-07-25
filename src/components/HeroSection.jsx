@@ -27,7 +27,7 @@ const Wrapper = styled.section`
 const HeroSection = () => {
   return (
     <Wrapper className="row">
-      <h2>Find Your Best furniture</h2>
+      <h1>Find Your Best furniture</h1>
       <div className="row column">
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting

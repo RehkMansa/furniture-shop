@@ -7,6 +7,16 @@ const Wrapper = styled.div`
   gap: 30px 40px;
 `;
 
+const ContainerWrapper = styled.div`
+  .header {
+    text-align: center;
+    margin-block: 50px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+`;
+
 const products = [
   {
     id: 0,
@@ -36,16 +46,22 @@ const products = [
 
 const ShopSection = () => {
   return (
-    <Wrapper>
-      {products.map((product) => (
-        <ShopProduct
-          img={`/images/shop/${product.img}`}
-          key={product.id}
-          price={product.price}
-          title={product.title}
-        />
-      ))}
-    </Wrapper>
+    <ContainerWrapper>
+      <div className="header">
+        <h2>Featured Products</h2>
+        <p>View the very best of what we have to offer</p>
+      </div>
+      <Wrapper>
+        {products.map((product) => (
+          <ShopProduct
+            img={`/images/shop/${product.img}`}
+            key={product.id}
+            price={product.price}
+            title={product.title}
+          />
+        ))}
+      </Wrapper>
+    </ContainerWrapper>
   );
 };
 

@@ -24,7 +24,7 @@ const FeaturedWrapper = styled.div`
 const FeaturedInner = (props) => (
   <FeaturedWrapper className="center column flex">
     <img src="/images/squares.svg" alt={props.title} />
-    <h3>{props.title}</h3>
+    <h4>{props.title}</h4>
     <p>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       Lorem Ipsum has been the industry's standard dummy
