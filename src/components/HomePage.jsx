@@ -26,8 +26,8 @@ const HomePage = () => {
       <div className="image-wrapper">
         <img src="/images/chair00.jpg" alt="bgImage" />
       </div>
-      <Demo />
-      <Users />
+      {/* <Demo /> */}
+      {/* <Users /> */}
       <PartnersSection />
       <FeaturedSection />
       <MiddleSection />
