@@ -39,12 +39,22 @@ const ModalBox = (props) => (
   </div>
 );
 
-const reducer = (state, action) => {};
+const reducer = (state, action) => {
+  if (action.type === 'TESTING') {
+    return {
+      ...state,
+      people: users,
+      modalOn: true,
+      modalContent: 'Item Added',
+    };
+  }
+  throw new Error('No Matching State');
+};
 
 const defaultState = {
   people: [],
   modalOn: false,
-  modalContent: 'Hello world',
+  modalContent: '',
 };
 
 const Users = () => {
@@ -53,11 +63,17 @@ const Users = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (name) {
+      dispatch({ type: 'TESTING' });
+    } else {
+      dispatch({ type: 'RANDOM' });
+    }
   };
 
   return (
     <Wrapper className="flex column center">
-      <ModalBox modalContent={state.modalContent} />
+      {state.modalOn && <ModalBox modalContent={state.modalContent} />}
       <form onSubmit={handleSubmit} className="center">
         <h4 style={{ textTransform: 'uppercase' }}>Add new person</h4>
         <input
@@ -69,10 +85,11 @@ const Users = () => {
         />
         <button type="submit">Submit</button>
       </form>
-
-      {state.people.map((person) => (
-        <p key={person.id}>{person.name}</p>
-      ))}
+      <ul className="" style={{ gap: 20 }}>
+        {state.people.map((person) => (
+          <li key={person.id}>{person.name},</li>
+        ))}
+      </ul>
     </Wrapper>
   );
 };
