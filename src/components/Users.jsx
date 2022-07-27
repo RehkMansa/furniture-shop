@@ -30,10 +30,9 @@ const Wrapper = styled.div`
   .grid-display {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    place-items: center;
+    gap: 30px 50px;
     span {
       cursor: pointer;
-      border: 1px solid red;
       position: relative;
 
       i {
@@ -57,11 +56,20 @@ const Wrapper = styled.div`
   }
 `;
 
-const ModalBox = (props) => (
-  <div>
-    <h5>{props.modalContent}</h5>
-  </div>
-);
+const ModalBox = (props) => {
+  useEffect(() => {
+    setTimeout(() => {
+      props.closeModal();
+    }, 3000);
+
+    return clearTimeout();
+  });
+  return (
+    <div>
+      <h5>{props.modalContent}</h5>
+    </div>
+  );
+};
 
 const reducer = (state, action) => {
   if (action.type === 'ADD_NEW') {
@@ -84,6 +92,15 @@ const reducer = (state, action) => {
 
   if (action.type === 'CLOSE_MODAL') return { ...state, modalOn: false };
 
+  if (action.type === 'REMOVE_ITEM') {
+    return {
+      ...state,
+      people: action.payload,
+      modalOn: true,
+      modalContent: 'Item Removed',
+    };
+  }
+
   throw new Error('No Matching Action');
 };
 
@@ -97,7 +114,7 @@ const DisplayName = (props) => {
   const [hoveredOn, setHoveredOn] = useState(false);
 
   return (
-    <div>
+    <div onClick={props.onClick}>
       <span
         onMouseOver={() => setHoveredOn(true)}
         onMouseOut={() => setHoveredOn(false)}
@@ -123,19 +140,23 @@ const Users = () => {
     }
   };
 
+  const handItemClick = (value) => {
+    const newItem = state.people.filter((person) => {
+      if (value.id !== person.id) return person;
+    });
+
+    dispatch({ type: 'REMOVE_ITEM', payload: newItem });
+
+    console.log(newItem, value.id);
+  };
+
   const closeModal = () => dispatch({ type: 'CLOSE_MODAL' });
-
-  useEffect(() => {
-    setTimeout(() => {
-      closeModal();
-    }, 3000);
-
-    return clearTimeout();
-  });
 
   return (
     <Wrapper className="flex column center">
-      {state.modalOn && <ModalBox modalContent={state.modalContent} />}
+      {state.modalOn && (
+        <ModalBox closeModal={closeModal} modalContent={state.modalContent} />
+      )}
       <form onSubmit={handleSubmit} className="center">
         <h4 style={{ textTransform: 'uppercase' }}>Add new person</h4>
         <input
@@ -147,9 +168,13 @@ const Users = () => {
         />
         <button type="submit">Submit</button>
       </form>
-      <article className="grid-display" style={{ gap: 20 }}>
+      <article className="grid-display">
         {state.people.map((person) => (
-          <DisplayName name={person.name} key={person.id} />
+          <DisplayName
+            name={person.name}
+            key={person.id}
+            onClick={() => handItemClick(person)}
+          />
         ))}
       </article>
     </Wrapper>
