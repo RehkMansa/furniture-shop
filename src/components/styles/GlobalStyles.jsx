@@ -82,6 +82,7 @@ const GlobalStyle = createGlobalStyle`
     color: var(--black);
     padding: 16px 32px;
     font-weight: 500;
+    cursor: pointer;
     font-size: 18px;
   }
 

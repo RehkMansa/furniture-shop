@@ -5,6 +5,7 @@ import MiddleSection from './MiddleSection';
 import PartnersSection from './PartnersSection';
 import ShopSection from './ShopSection';
 import Testimonials from './Testimonials';
+import Users from './Users';
 
 const Wrapper = styled.div`
   .image-wrapper {
@@ -24,6 +25,7 @@ const HomePage = () => {
       <div className="image-wrapper">
         <img src="/images/chair00.jpg" alt="bgImage" />
       </div>
+      <Users />
       <PartnersSection />
       <FeaturedSection />
       <MiddleSection />

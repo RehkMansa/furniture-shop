@@ -12,10 +12,9 @@ const Wrapper = styled.section`
     width: 540px;
   }
 
-  h2 {
+  h1 {
     font-weight: 500;
     font-size: 80px;
-    line-height: 90px;
   }
 
   div {
