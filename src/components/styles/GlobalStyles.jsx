@@ -68,7 +68,6 @@ const GlobalStyle = createGlobalStyle`
   }
   button, input{
     outline:none;
-    border: none;
   }
 
   
@@ -80,6 +79,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 500;
     cursor: pointer;
     font-size: 18px;
+    border: none;
   }
 
   .btn-info{

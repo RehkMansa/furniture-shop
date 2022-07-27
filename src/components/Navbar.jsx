@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
   padding-block: 25px;
   justify-content: space-between;
+  align-items: center;
 
   i {
     font-size: 12px;
@@ -16,11 +18,45 @@ const MenuContainer = styled.div`
   gap: 20px;
 `;
 
-const MenuWrapper = styled.div``;
+const MenuWrapper = styled.div`
+  cursor: pointer;
+  .shopping-cart {
+    width: 45px;
+    height: 45px;
+    background: #e6e6e6;
+    position: relative;
+    border-radius: 50%;
+  }
 
-const MenuIcons = styled.div``;
+  .shopping-cart:after {
+    content: attr(cartItems);
+    right: 0;
+    top: 3px;
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    color: #fff;
+    border-radius: 50%;
+    background: #ed5d45;
+    font-weight: 500;
+    line-height: 13px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    height: 20px;
+  }
+`;
+
+const MenuIcons = styled.div`
+  gap: 20px;
+`;
 
 const Navbar = () => {
+  const [cartCount, setCartCount] = useState(0);
+
   return (
     <Nav className="row">
       <img src="/images/logo.svg" alt="logo" />
@@ -31,11 +67,18 @@ const Navbar = () => {
         <MenuItem title="about us" link="products" />
         <MenuItem title="contact us" link="contact-us  " />
       </MenuContainer>
-      <MenuIcons>
+      <MenuIcons className="flex center">
         <IconWrapper img="user.svg" />
         <IconWrapper img="heart.svg" />
-        <IconWrapper img="shopping-cart.svg" />
+        <IconWrapper
+          onClick={(e) => setCartCount((cartCount) => cartCount + 1)}
+          img="shopping-cart.svg"
+          className="shopping-cart"
+          cartCount={cartCount}
+        />
       </MenuIcons>
+
+      <input type="text" placeholder="" />
       <i>{new Date().toDateString()}</i>
     </Nav>
   );
@@ -55,11 +98,16 @@ const MenuItem = (props) => {
 const IconWrapper = (props) => {
   return (
     <MenuWrapper>
-      <img
-        src={`/images/${props.img}`}
-        alt={props.iconName}
-        onClick={props.onClick}
-      />
+      <div
+        cartItems={props.cartCount}
+        className={`${props.className} flex center`}
+      >
+        <img
+          src={`/images/${props.img}`}
+          alt={props.iconName}
+          onClick={props.onClick}
+        />
+      </div>
     </MenuWrapper>
   );
 };

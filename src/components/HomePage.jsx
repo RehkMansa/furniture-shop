@@ -1,12 +1,10 @@
 import styled from 'styled-components';
-import Demo from './Demo';
 import FeaturedSection from './FeaturedSection';
 import HeroSection from './HeroSection';
 import MiddleSection from './MiddleSection';
 import PartnersSection from './PartnersSection';
 import ShopSection from './ShopSection';
 import Testimonials from './Testimonials';
-import Users from './Users';
 
 const Wrapper = styled.div`
   .image-wrapper {
