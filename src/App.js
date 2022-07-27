@@ -19,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePageLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="shop" element={<ShopLayout />} />
         </Route>
       </Routes>
     </AppContainer>
