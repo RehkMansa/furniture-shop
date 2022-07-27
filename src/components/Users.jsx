@@ -1,10 +1,5 @@
-import { useReducer, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import styled from 'styled-components';
-
-const users = [
-  { id: 0, name: 'rehk' },
-  { id: 1, name: 'mansa' },
-];
 
 const Wrapper = styled.div`
   margin-top: 50px;
@@ -31,6 +26,35 @@ const Wrapper = styled.div`
       color: #fff;
     }
   }
+
+  .grid-display {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    place-items: center;
+    span {
+      cursor: pointer;
+      border: 1px solid red;
+      position: relative;
+
+      i {
+        position: absolute;
+        top: -10px;
+        font-style: normal;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: max-content;
+        background-color: rgba(0, 0, 0, 0.57);
+        color: #fff;
+        font-size: 10px;
+        padding: 2px 10px;
+        border-radius: 20px;
+        margin: auto;
+      }
+    }
+    span::first-letter {
+      text-transform: uppercase;
+    }
+  }
 `;
 
 const ModalBox = (props) => (
@@ -40,15 +64,27 @@ const ModalBox = (props) => (
 );
 
 const reducer = (state, action) => {
-  if (action.type === 'TESTING') {
+  if (action.type === 'ADD_NEW') {
+    const newUsers = [...state.people, action.payload];
     return {
       ...state,
-      people: users,
+      people: newUsers,
       modalOn: true,
       modalContent: 'Item Added',
     };
   }
-  throw new Error('No Matching State');
+  if (action.type === 'NO_VALUE') {
+    return {
+      ...state,
+      people: state.people,
+      modalOn: true,
+      modalContent: 'Please Enter A Value',
+    };
+  }
+
+  if (action.type === 'CLOSE_MODAL') return { ...state, modalOn: false };
+
+  throw new Error('No Matching Action');
 };
 
 const defaultState = {
@@ -57,19 +93,45 @@ const defaultState = {
   modalContent: '',
 };
 
+const DisplayName = (props) => {
+  const [hoveredOn, setHoveredOn] = useState(false);
+
+  return (
+    <div>
+      <span
+        onMouseOver={() => setHoveredOn(true)}
+        onMouseOut={() => setHoveredOn(false)}
+      >
+        {props.name} {hoveredOn && <i>Remove Name</i>}
+      </span>
+    </div>
+  );
+};
+
 const Users = () => {
   const [name, setName] = useState('');
   const [state, dispatch] = useReducer(reducer, defaultState);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const newItem = { id: new Date().getTime().toString(), name };
     if (name) {
-      dispatch({ type: 'TESTING' });
+      dispatch({ type: 'ADD_NEW', payload: newItem });
+      setName('');
     } else {
-      dispatch({ type: 'RANDOM' });
+      dispatch({ type: 'NO_VALUE' });
     }
   };
+
+  const closeModal = () => dispatch({ type: 'CLOSE_MODAL' });
+
+  useEffect(() => {
+    setTimeout(() => {
+      closeModal();
+    }, 3000);
+
+    return clearTimeout();
+  });
 
   return (
     <Wrapper className="flex column center">
@@ -85,11 +147,11 @@ const Users = () => {
         />
         <button type="submit">Submit</button>
       </form>
-      <ul className="" style={{ gap: 20 }}>
+      <article className="grid-display" style={{ gap: 20 }}>
         {state.people.map((person) => (
-          <li key={person.id}>{person.name},</li>
+          <DisplayName name={person.name} key={person.id} />
         ))}
-      </ul>
+      </article>
     </Wrapper>
   );
 };
