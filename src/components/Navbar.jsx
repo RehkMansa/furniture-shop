@@ -12,6 +12,21 @@ const Nav = styled.nav`
     font-weight: 700;
     min-width: 100px;
   }
+
+  .search {
+    position: relative;
+    input {
+      border-radius: 20px;
+      border: 1px solid #555555;
+      padding: 5px 20px;
+      padding-right: 50px;
+      font-size: 16px;
+    }
+    img {
+      width: 16px;
+      margin-left: -40px;
+    }
+  }
 `;
 
 const MenuContainer = styled.div`
@@ -77,8 +92,10 @@ const Navbar = () => {
           cartCount={cartCount}
         />
       </MenuIcons>
-
-      <input type="text" placeholder="" />
+      <div className="search flex center">
+        <input type="text" />
+        <img src="/images/search.svg" alt="search" />
+      </div>
       <i>{new Date().toDateString()}</i>
     </Nav>
   );
